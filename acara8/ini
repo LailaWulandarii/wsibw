@@ -1,0 +1,28 @@
+<?php
+class menghitung {
+
+        public function hitung_lingkaran($jari_jari) {
+        $luas = M_PI * $jari_jari * $jari_jari;
+        $keliling = 2 * M_PI * $jari_jari;
+        return ["luas" => $luas, "keliling" => $keliling];
+    }
+
+    public function hitung_persegi($sisi) {
+        $luas = $sisi * $sisi;
+        $keliling = 4 * $sisi;
+        return ["luas" => $luas, "keliling" => $keliling];
+    }
+}
+
+$hitung = new menghitung();
+
+$jari_lingkaran = 15;   
+$hasil_lingkaran = $hitung->hitung_lingkaran($jari_lingkaran);
+echo "Luas Lingkaran: " . $hasil_lingkaran['luas'] . "\n";
+echo "Keliling Lingkaran: " . $hasil_lingkaran['keliling'] . "\n";
+
+$sisi_persegi = 8;
+$hasil_persegi = $hitung->hitung_persegi($sisi_persegi);
+echo "Luas Persegi: " . $hasil_persegi['luas'] . "\n";
+echo "Keliling Persegi: " . $hasil_persegi['keliling'] . "\n";
+?>

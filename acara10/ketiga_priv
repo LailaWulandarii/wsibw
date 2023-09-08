@@ -1,0 +1,37 @@
+<?php
+class Tablet {
+    private $merk;
+    private $camera;
+    private $memory;
+
+    public function __construct($merk, $camera, $memory) {
+        $this->merk = $merk;
+        $this->camera = $camera;
+        $this->memory = $memory;
+    }
+
+    private function infoTablet() {
+        return "Merk: {$this->merk}, Kamera: {$this->camera} MP, Memory: {$this->memory} GB";
+    }
+}
+
+class Handphone extends Tablet {
+    private $handphone_baru;
+
+    public function __construct($merk, $camera, $memory, $handphone_baru) {
+        parent::__construct($merk, $camera, $memory);
+        $this->handphone_baru = $handphone_baru;
+    }
+
+    public function beliHandphone() {
+        return "Beli Handphone {$this->handphone_baru}";
+    }
+
+    public function infoHandphone() {
+        return $this->infoTablet() . ", Handphone: {$this->handphone_baru}";
+    }
+}
+
+$handphone = new Handphone('Vivo', 8, 128, 'Vivo y51 2020');
+echo $handphone->beliHandphone() . "\n"; 
+echo $handphone->infoHandphone() . "\n";

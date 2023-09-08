@@ -1,0 +1,78 @@
+<?php
+class ItemProduk {
+    protected $ukuran;
+    protected $warna;
+    protected $nama;
+
+    public function __construct($ukuran, $warna, $nama) {
+        $this->ukuran = $ukuran;
+        $this->warna = $warna;
+        $this->nama = $nama;
+    }
+
+    public function Ukuran() {
+        return $this->ukuran;
+    }
+
+    public function Warna() {
+        return $this->warna;
+    }
+
+    public function Nama() {
+        return $this->nama;
+    }
+}
+
+class Topi extends ItemProduk {
+    protected $model;
+
+    public function __construct($ukuran, $warna, $nama, $model) {
+        parent::__construct($ukuran, $warna, $nama);
+        $this->model = $model;
+    }
+
+    public function Model() {
+        return $this->model;
+    }
+}
+
+class Celana extends ItemProduk {
+    protected $tipe;
+    protected $model;
+
+    public function __construct($ukuran, $warna, $nama, $tipe, $model) {
+        parent::__construct($ukuran, $warna, $nama);
+        $this->tipe = $tipe;
+        $this->model = $model;
+    }
+
+    public function Tipe() {
+        return $this->tipe;
+    }
+
+    public function Model() {
+        return $this->model;
+    }
+}
+
+class Baju extends ItemProduk {
+    protected $tipe;
+
+    public function __construct($ukuran, $warna, $nama, $tipe) {
+        parent::__construct($ukuran, $warna, $nama);
+        $this->tipe = $tipe;
+    }
+
+    public function Tipe() {
+        return $this->tipe;
+    }
+}
+
+$topi = new Topi('L', 'Hitam', 'Topi Gaul', 'Snapback');
+echo "Topi: {$topi->Nama()}, Ukuran: {$topi->Ukuran()}, Warna: {$topi->Warna()}, Model: {$topi->Model()}\n";
+
+$celana = new Celana('L', 'Beige', 'Celana chinos', 'Panjang', 'Slim Fit');
+echo "Celana: {$celana->Nama()}, Ukuran: {$celana->Ukuran()}, Warna: {$celana->Warna()}, Tipe: {$celana->Tipe()}, Model: {$celana->Model()}\n";
+
+$baju = new Baju('XL', 'Army', 'Kemeja', 'Lengan Panjang');
+echo "Baju: {$baju->Nama()}, Ukuran: {$baju->Ukuran()}, Warna: {$baju->Warna()}, Tipe: {$baju->Tipe()}\n";

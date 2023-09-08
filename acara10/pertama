@@ -1,0 +1,32 @@
+<?php
+class MobiLengkap {
+    public function nontonTV() {
+        echo "TV dihidupkan\n";
+        echo "TV Mencari Chanel\n";
+        echo "TV Menampilkan gambar\n";
+    }
+}
+
+class MobilBMW extends MobiLengkap {
+    public function nontonTv() {
+        parent::nontonTV(); 
+    }
+
+    public function HidupkanMobil() {
+        echo "Menghidupkan mesin mobil BMW\n";
+    }
+
+    public function MatikanMobil() {
+        echo "Mematikan mesin mobil BMW\n";
+    }
+
+    public function ubahGigi($gigi) {
+        echo "Mengubah gigi mobil menjadi gigi $gigi \n";
+    }
+}
+
+$bmw = new MobilBMW();
+$bmw->HidupkanMobil();
+$bmw->ubahGigi(2);
+$bmw->nontonTv();
+$bmw->MatikanMobil();

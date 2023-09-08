@@ -1,0 +1,83 @@
+<?php
+interface hitungLuas {
+    public function hitungLuasPersegi();
+    public function hitungLuasSegitiga();
+    public function hitungLuasLingkaran();
+}
+
+class Persegi implements hitungLuas {
+    private $sisi;
+
+    public function __construct($sisi) {
+        $this->sisi = $sisi;
+    }
+
+    public function hitungLuasPersegi() {
+        return $this->sisi * $this->sisi;
+    }
+
+    public function hitungLuasSegitiga() {
+        // Tidak digunakan dalam kelas Persegi, bisa dikosongkan
+        return 0;
+    }
+
+    public function hitungLuasLingkaran() {
+        // Tidak digunakan dalam kelas Persegi, bisa dikosongkan
+        return 0;
+    }
+}
+
+class Segitiga implements hitungLuas {
+    private $alas;
+    private $tinggi;
+
+    public function __construct($alas, $tinggi) {
+        $this->alas = $alas;
+        $this->tinggi = $tinggi;
+    }
+
+    public function hitungLuasPersegi() {
+        // Tidak digunakan dalam kelas Segitiga, bisa dikosongkan
+        return 0;
+    }
+
+    public function hitungLuasSegitiga() {
+        return 0.5 * $this->alas * $this->tinggi;
+    }
+
+    public function hitungLuasLingkaran() {
+        // Tidak digunakan dalam kelas Segitiga, bisa dikosongkan
+        return 0;
+    }
+}
+
+class Lingkaran implements hitungLuas {
+    private $jariJari;
+
+    public function __construct($jariJari) {
+        $this->jariJari = $jariJari;
+    }
+
+    public function hitungLuasPersegi() {
+        // Tidak digunakan dalam kelas Lingkaran, bisa dikosongkan
+        return 0;
+    }
+
+    public function hitungLuasSegitiga() {
+        // Tidak digunakan dalam kelas Lingkaran, bisa dikosongkan
+        return 0;
+    }
+
+    public function hitungLuasLingkaran() {
+        return 3.14 * $this->jariJari * $this->jariJari;
+    }
+}
+
+$persegi = new Persegi(5);
+echo "Luas Persegi: " . $persegi->hitungLuasPersegi() . "\n";
+
+$segitiga = new Segitiga(6, 8);
+echo "Luas Segitiga: " . $segitiga->hitungLuasSegitiga() . "\n";
+
+$lingkaran = new Lingkaran(4);
+echo "Luas Lingkaran: " . $lingkaran->hitungLuasLingkaran() . "\n";
